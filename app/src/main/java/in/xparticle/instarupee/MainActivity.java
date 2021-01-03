@@ -7,8 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import in.xparticle.instarupee.utils.AppSession;
+
 public class MainActivity extends AppCompatActivity {
 
+
+    AppSession appSession;
     Button mLoginBtn,mSingUpBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +21,13 @@ public class MainActivity extends AppCompatActivity {
 
         mLoginBtn = findViewById(R.id.loginBtn);
         mSingUpBtn = findViewById(R.id.signUpBtn);
+        appSession = new AppSession(this);
+
+        if(appSession.isLongIn()){
+            Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

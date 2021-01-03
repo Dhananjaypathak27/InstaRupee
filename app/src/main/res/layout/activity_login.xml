@@ -62,16 +62,16 @@
                 android:paddingTop="40dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="hello"
+                android:hint="Phone Number"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view2">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text1"
+                    android:id="@+id/activity_login_phonenumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="phone"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,13 +84,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="bananan"
+                android:hint="Password"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
                 app:passwordToggleEnabled="true"
                 tools:layout_editor_absoluteX="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text2"
+                    android:id="@+id/activity_login_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
