@@ -62,13 +62,13 @@ Account"
                 android:paddingTop="40dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="hello"
+                android:hint="First Name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view2">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text1"
+                    android:id="@+id/activity_signup_firstname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -83,11 +83,11 @@ Account"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:layout_margin="10dp"
-                android:hint="hello"
+                android:hint="Last Name"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text11"
+                    android:id="@+id/activity_signup_lastname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -100,16 +100,16 @@ Account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="hello"
+                android:hint="Mobile Number"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout1">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text12"
+                    android:id="@+id/activity_signup_phonenumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="phone"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,16 +119,16 @@ Account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="hello"
+                android:hint="Email"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text15"
+                    android:id="@+id/activity_signup_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -138,16 +138,35 @@ Account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="hello"
+                android:hint="City"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text16"
+                    android:id="@+id/activity_signup_city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout55"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="State"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/activity_signup_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout27"
@@ -155,13 +174,13 @@ Account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="bananan"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+                android:hint="Password"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout55"
                 app:passwordToggleEnabled="true"
                 tools:layout_editor_absoluteX="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text2"
+                    android:id="@+id/activity_signup_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -171,14 +190,14 @@ Account"
 
             <Button
 
-                android:id="@+id/button"
+                android:id="@+id/activity_signup_signupbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="40dp"
                 android:layout_marginTop="40dp"
                 android:padding="15dp"
                 android:paddingVertical="15dp"
-                android:text="Log In"
+                android:text="Sign Up"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -198,16 +217,17 @@ Account"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button" />
+                app:layout_constraintTop_toBottomOf="@+id/activity_signup_signupbtn" />
 
             <Button
+                android:id="@+id/activity_signup_loginBtn"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="40dp"
                 android:padding="15dp"
                 android:paddingVertical="15dp"
-                android:text="Sign up"
+                android:text="Log In"
                 android:textAllCaps="false"
                 android:textColor="@color/blue"
                 android:textSize="20sp"
