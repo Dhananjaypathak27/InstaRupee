@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import in.xparticle.instarupee.fragment.ChatFragment;
 import in.xparticle.instarupee.fragment.FavoriteFragment;
 import in.xparticle.instarupee.fragment.HomeFragment;
 import in.xparticle.instarupee.fragment.ProfileFragment;
@@ -66,8 +67,7 @@ public class HomeActivity extends AppCompatActivity  {
                         break;
 
                     case R.id.miChat:
-                        selectedFragment = new HomeFragment();
-                        Toast.makeText(HomeActivity.this, "Currently chat feature is not available", Toast.LENGTH_SHORT).show();
+                        selectedFragment = new ChatFragment();
                         break;
 //
                     case R.id.miProfile:

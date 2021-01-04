@@ -11,7 +11,8 @@ import android.widget.Toast;
 
 import in.xparticle.instarupee.R;
 
-public class FavoriteFragment extends Fragment {
+
+public class ChatFragment extends Fragment {
 
 
 
@@ -19,7 +20,8 @@ public class FavoriteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Toast.makeText(getActivity(), "Currently editing add feature is not available", Toast.LENGTH_SHORT).show();
-        return inflater.inflate(R.layout.fragment_favorite, container, false);
+
+        Toast.makeText(getActivity(), "Currently chat feature is not available", Toast.LENGTH_SHORT).show();
+        return inflater.inflate(R.layout.fragment_chat, container, false);
     }
 }
