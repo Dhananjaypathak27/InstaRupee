@@ -81,7 +81,7 @@ public class ProductActivity extends AppCompatActivity {
         byte[] decodedString = Base64.decode(product.getImage(), Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         image.setImageBitmap(decodedByte);
-        Toast.makeText(this, "session"+appSession.getState()+ "product"+product.getState(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "session"+appSession.getState()+ "product"+product.getState(), Toast.LENGTH_SHORT).show();
         Log.d("TAG", "setData: "+ "session"+appSession.getState()+ "product"+product.getState());
 
 

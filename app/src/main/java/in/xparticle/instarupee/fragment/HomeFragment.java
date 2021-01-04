@@ -1,8 +1,10 @@
 package in.xparticle.instarupee.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -38,16 +41,15 @@ import in.xparticle.instarupee.model.Products;
 public class HomeFragment extends Fragment {
 
 
-    //private HomeViewModel homeViewModel;
+
     private DatabaseReference ProductRef;
     RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_home, container, false);
+
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         recyclerView = root.findViewById(R.id.fragment_home_recyclerview);
@@ -61,6 +63,7 @@ public class HomeFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+        Toast.makeText(getActivity(), "Please wait, while we are fetching Products near you...", Toast.LENGTH_LONG).show();
         FirebaseRecyclerOptions<Products> options =
                 new FirebaseRecyclerOptions.Builder<Products>()
                         .setQuery(ProductRef,Products.class)
@@ -70,13 +73,11 @@ public class HomeFragment extends Fragment {
                 new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
                     @Override
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model) {
-                        holder.price.setText(model.getSellingPrice());
+                        holder.price.setText("₹"+model.getSellingPrice());
                         holder.title.setText(model.getTitle());
                         holder.city.setText(model.getCity());
-
                         byte[] decodedString = Base64.decode(model.getImage(), Base64.DEFAULT);
                         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-
                        holder.imageView.setImageBitmap(decodedByte);
 
                        holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +100,7 @@ public class HomeFragment extends Fragment {
                 };
         recyclerView.setAdapter(adapter);
         adapter.startListening();
+
 
     }
 

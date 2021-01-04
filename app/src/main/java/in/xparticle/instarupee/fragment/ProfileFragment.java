@@ -2,6 +2,7 @@ package in.xparticle.instarupee.fragment;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import in.xparticle.instarupee.MainActivity;
 import in.xparticle.instarupee.ManageProfileActivity;
@@ -53,6 +55,15 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 logoutFromThisDevice();
+            }
+        });
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Contact developer to know more", Toast.LENGTH_SHORT).show();
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:7007637783"));
+                startActivity(callIntent);
             }
         });
     }

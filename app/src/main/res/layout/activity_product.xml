@@ -48,9 +48,10 @@
                 android:fontFamily="sans-serif"
                 android:paddingVertical="10dp"
                 android:paddingStart="20dp"
+
                 android:text="price"
                 android:textAlignment="textStart"
-                android:textColor="@color/black"
+                android:textColor="@color/blue"
                 android:textSize="29sp"
                 android:textStyle="italic" />
 
@@ -75,10 +76,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
+                        android:textColor="@color/blue"
                         android:text="City"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
+
                         android:textSize="20sp" />
 
                     <TextView
@@ -106,10 +107,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
+                        android:textColor="@color/blue"
                         android:text="State"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
                         android:textSize="20sp" />
 
                     <TextView
@@ -144,10 +144,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
+                        android:textColor="@color/blue"
                         android:text="MRP"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
                         android:textSize="20sp" />
 
                     <TextView
@@ -176,8 +175,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Old(In months)"
+                        android:textColor="@color/blue"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
                         android:textSize="20sp" />
 
                     <TextView
@@ -197,10 +196,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:paddingVertical="10dp"
-                android:paddingStart="20dp"
+                android:paddingStart="20dp"                        android:textColor="@color/blue"
                 android:text="Description"
+                android:elevation="5dp"
                 android:textAlignment="textStart"
-                android:textColor="@color/black"
                 android:textSize="22sp"
                 android:textStyle="italic" />
 

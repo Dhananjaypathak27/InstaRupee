@@ -35,7 +35,7 @@ import in.xparticle.instarupee.utils.AppSession;
 public class PublishAddActivity extends AppCompatActivity {
 
     AppSession appSession;
-
+    ImageView backBtn;
     Button submitBtn;
     EditText title,numberOfMonths,productDescription,MRP,sellingPrice;
     Bitmap image;
@@ -46,6 +46,7 @@ public class PublishAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish_add);
 
+        backBtn = findViewById(R.id.publish_backBtn);
         camera = findViewById(R.id.imageView4);
         submitBtn = findViewById(R.id.activity_publish_add_submitBtn);
         title = findViewById(R.id.activity_publish_add_title);
@@ -56,7 +57,12 @@ public class PublishAddActivity extends AppCompatActivity {
         appSession = new AppSession(this);
         loadingBar = new ProgressDialog(this);
 
-
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
