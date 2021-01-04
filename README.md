@@ -1,10 +1,11 @@
-# InstaRupee
+# InstaRupee <img src="app/src/main/res/drawable/logo.png">
 * This is an Android app where individual can purchase sell his goods online.
 * InstaRupee marketplace is a platform for buying and selling services and goods such as electronics, fashion items, furniture, household goods, cars and bikes.
 * InstaRupee is available in all cities of India.
 * InstaRupee is a free classifieds and online marketplace that helps users to sell, buy or discover anything across India.
 
-<img src="app/src/main/res/drawable/logo.png">
+# ScreenShot
+<img src="app/src/main/res/drawable/mhome.png"> 
 
 # How to use
 * SignUpActivity - User has to create his account using phone number, email, password,city,state.
