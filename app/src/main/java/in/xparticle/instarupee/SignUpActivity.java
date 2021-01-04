@@ -99,11 +99,11 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         else if (email.getText().toString().equals("")){
             email.setError("Enter Email");
         }
-        else if (city.equals("Select your City")){
+        else if (city.equals("Select your current City")){
             //city.setError("Enter Your City Name");
             Toast.makeText(this, "No City Selected", Toast.LENGTH_SHORT).show();
         }
-        else if (state.equals("Select your State")){
+        else if (state.equals("Select your current State")){
             //state.setError("Enter state");
             Toast.makeText(this, "No state Selected", Toast.LENGTH_SHORT).show();
         }
