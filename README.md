@@ -11,19 +11,17 @@
 # Group name:- InstaRupee
 We as a team,  came together to work on this project. Through this project, we learn something new through which we came one step forward to achieve our goals. Through this project, you gave us an opportunity to prove ourselves.
 
+# How to use
+
+<img src="app/src/main/res/drawable/prototyle.png" height="400">
+
+
 # ScreenShot
 <img src="app/src/main/res/drawable/mhome.jpeg" height="400"> <img src="app/src/main/res/drawable/mlogin.jpeg" height="400"> 
 <img src="app/src/main/res/drawable/msignup.jpeg" height="400"> <img src="app/src/main/res/drawable/mhomef.jpeg" height="400">
 <img src="app/src/main/res/drawable/mmanageprofile.jpeg" height="400"> <img src="app/src/main/res/drawable/mprofile.jpeg" height="400">
 <img src="app/src/main/res/drawable/mupload.jpeg" height="400">
 
-# How to use
-* SignUpActivity - User has to create his account using phone number, email, password,city,state.
-* SignInAcitivity - User is then redirected to LoginActivity where he has to provide phone number and password.
-* HomeFragment - User can click on any item and call the seller if he belong to same state else call button is disable.
-* HomeActivity - FloatingActionButton user has to click on it to open PublishAddAcitiviy where he can fill detail to publish his product (click a photo,Sellingprice,
-MRP,description)
-* ProfileFragment - User can update his profile using
 
 # Technologies Used:-
 * Language - XML, JAVA
