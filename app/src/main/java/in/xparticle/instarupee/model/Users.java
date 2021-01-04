@@ -5,21 +5,21 @@ import android.os.Parcelable;
 
 public class Users implements Parcelable {
 
-    private String firstName,lastName,password,phone,state,city,email;
+    public String city,email ,firstName,lastName,password,phone,state;
 
-    public Users(String firstName, String lastName, String password, String phone, String state, String city, String email) {
+    public Users() {
+    }
+
+    public Users(String city, String email, String firstName,
+                 String lastName, String password, String phone, String state) {
+        this.city = city;
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.phone = phone;
         this.state = state;
-        this.city = city;
-        this.email = email;
     }
-
-    public Users() {
-    }
-
 
     protected Users(Parcel in) {
         firstName = in.readString();

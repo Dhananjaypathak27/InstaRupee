@@ -30,22 +30,25 @@ public class AppSession {
     }
 
     public String getFirstName(){
-        prefsEditor = mSharedPreferences.edit();
         return mSharedPreferences.getString("firstName","");
     }
 
     public void setLastName(String lastName){
         prefsEditor = mSharedPreferences.edit();
         prefsEditor.putString("lastName",lastName);
+        prefsEditor.commit();
+
     }
 
-    public String getLastName(String lastName){
-        return mSharedPreferences.getString("firstName","");
+    public String getLastName(){
+        return mSharedPreferences.getString("lastName","");
     }
 
     public void setPhoneNumber(String phoneNumber){
         prefsEditor = mSharedPreferences.edit();
         prefsEditor.putString("phoneNumber",phoneNumber);
+        prefsEditor.commit();
+
     }
 
     public String getPhoneNumber(){
@@ -55,6 +58,8 @@ public class AppSession {
     public void setEmail(String email){
         prefsEditor = mSharedPreferences.edit();
         prefsEditor.putString("email",email);
+        prefsEditor.commit();
+
     }
 
     public String getEmail(){
@@ -64,6 +69,8 @@ public class AppSession {
     public void setCity(String city){
         prefsEditor = mSharedPreferences.edit();
         prefsEditor.putString("city",city);
+        prefsEditor.commit();
+
     }
 
     public String getCity(){
@@ -73,6 +80,8 @@ public class AppSession {
     public void setState(String state){
         prefsEditor = mSharedPreferences.edit();
         prefsEditor.putString("state",state);
+        prefsEditor.commit();
+
     }
 
     public String getState(){
@@ -82,6 +91,8 @@ public class AppSession {
     public void setPassword(String password){
         prefsEditor = mSharedPreferences.edit();
         prefsEditor.putString("password",password);
+        prefsEditor.commit();
+
     }
 
     public String getPassword(){

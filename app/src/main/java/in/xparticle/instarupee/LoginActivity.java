@@ -101,12 +101,18 @@ public class LoginActivity extends AppCompatActivity {
                     if(usersData.getPhone().equals(phone)){
                         if(usersData.getPassword().equals(password)){
                             if(parentDbName.equals("Users")){
-                                Toast.makeText(LoginActivity.this, "login successfully...", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "login successfully..."+ usersData.firstName, Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
-
+                                Log.d(TAG, "onDataChange: is here"+ usersData.getCity()+ usersData.getEmail() + usersData.getPhone()+ usersData);
+                                Log.d(TAG, "onDataChange: by name "+usersData.firstName+ usersData.getPhone()+ usersData.email+ usersData.state);
                                 appSession.setLogin(true);
                                 appSession.setPhoneNumber(phone);
                                 appSession.setPassword(password);
+                                appSession.setCity(usersData.getCity());
+                                appSession.setEmail(usersData.getEmail());
+                                appSession.setState(usersData.getState());
+                                appSession.setFirstName(usersData.getFirstName());
+                                appSession.setLastName(usersData.getLastName());
 
                                 Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                                 startActivity(intent);

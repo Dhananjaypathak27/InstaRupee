@@ -44,4 +44,6 @@ dependencies {
     //firebase recycler Adapter
     implementation 'com.firebaseui:firebase-ui-database:6.0.2'
 
+    //picaso
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

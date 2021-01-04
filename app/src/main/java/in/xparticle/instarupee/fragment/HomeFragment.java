@@ -1,25 +1,34 @@
 package in.xparticle.instarupee.fragment;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayDeque;
 
+import in.xparticle.instarupee.ItemClickListner;
+import in.xparticle.instarupee.ProductViewHolder;
 import in.xparticle.instarupee.R;
 import in.xparticle.instarupee.model.Products;
 
@@ -41,8 +50,8 @@ public class HomeFragment extends Fragment {
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         recyclerView = root.findViewById(R.id.fragment_home_recyclerview);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
+        recyclerView.setLayoutManager(gridLayoutManager);
         return root;
     }
 
@@ -54,6 +63,38 @@ public class HomeFragment extends Fragment {
                 new FirebaseRecyclerOptions.Builder<Products>()
                         .setQuery(ProductRef,Products.class)
                         .build();
+
+        FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter =
+                new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model) {
+                        holder.price.setText(model.getSellingPrice());
+                        holder.title.setText(model.getTitle());
+                        holder.city.setText(model.getCity());
+
+                        byte[] decodedString = Base64.decode(model.getImage(), Base64.DEFAULT);
+                        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+
+                       holder.imageView.setImageBitmap(decodedByte);
+
+                       holder.setItemClickListner(new ItemClickListner() {
+                           @Override
+                           public void onClick(View view, int position, boolean isLongClick) {
+
+                           }
+                       });
+                    }
+
+                    @NonNull
+                    @Override
+                    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview_small,parent,false);
+                        ProductViewHolder holder = new ProductViewHolder(view);
+                        return holder;
+                    }
+                };
+        recyclerView.setAdapter(adapter);
+        adapter.startListening();
 
     }
 
