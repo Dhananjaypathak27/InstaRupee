@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,19 +27,19 @@ import in.xparticle.instarupee.utils.AppSession;
 public class LoginActivity extends AppCompatActivity {
 
     Button mLoginBtn,mSignUpBtn;
+    ImageView backBtn;
     private String parentDbName = "Users";
     private static final String TAG = "LoginActivity";
     private EditText mPhoneNumber,mPassword;
-    private Button LoginButton;
     private ProgressDialog loadingBar;
     AppSession appSession;
-    private TextView AdminLink,NotAdminLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        backBtn = findViewById(R.id.login_backbtn);
         mLoginBtn = findViewById(R.id.activity_login_loginBtn);
         mSignUpBtn = findViewById(R.id.activity_login_signUpBtn);
         mPhoneNumber = findViewById(R.id.activity_login_phonenumber);
@@ -46,7 +47,12 @@ public class LoginActivity extends AppCompatActivity {
         loadingBar = new ProgressDialog(this);
         appSession = new AppSession(this);
 
-
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                     if(usersData.getPhone().equals(phone)){
                         if(usersData.getPassword().equals(password)){
                             if(parentDbName.equals("Users")){
-                                Toast.makeText(LoginActivity.this, "login successfully..."+ usersData.firstName, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "login successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
                                 Log.d(TAG, "onDataChange: is here"+ usersData.getCity()+ usersData.getEmail() + usersData.getPhone()+ usersData);
                                 Log.d(TAG, "onDataChange: by name "+usersData.firstName+ usersData.getPhone()+ usersData.email+ usersData.state);
@@ -115,8 +121,9 @@ public class LoginActivity extends AppCompatActivity {
                                 appSession.setLastName(usersData.getLastName());
 
                                 Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
-                                finish();
+
                             }
                         }
                         else{

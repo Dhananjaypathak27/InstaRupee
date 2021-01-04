@@ -16,6 +16,7 @@
             android:id="@+id/linearLayoutCompat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -27,11 +28,8 @@
 
             <Spinner
                 android:id="@+id/fragment_home_city_spinner"
-                android:layout_width="300dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:completionHint="Enter your City"
-                android:completionThreshold="1"
-
                 />
 
         </androidx.appcompat.widget.LinearLayoutCompat>

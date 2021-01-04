@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 
     Spinner spinnerState,spinnerCity;
     String state ="",city="";
+    ImageView backBtn;
     private Button mLoginBtn,mSignUpBtn;
     private EditText firstName,lastName,mobileNumber,email,
             //city, state,
@@ -44,12 +46,18 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         mobileNumber = findViewById(R.id.activity_signup_phonenumber);
         email = findViewById(R.id.activity_signup_email);
         spinnerCity = findViewById(R.id.activity_signup_city);
+        backBtn = findViewById(R.id.signUp_backbtn);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,R.array.india_top_places,R.layout.support_simple_spinner_dropdown_item);
         adapter1.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinnerCity.setAdapter(adapter1);
         spinnerCity.setOnItemSelectedListener(this);
         //state = findViewById(R.id.activity_signup_state);
-
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         spinnerState = findViewById(R.id.activity_signup_state);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.india_states,R.layout.support_simple_spinner_dropdown_item);
@@ -73,10 +81,11 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(SignUpActivity.this, "login in", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(SignUpActivity.this, "login in", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
