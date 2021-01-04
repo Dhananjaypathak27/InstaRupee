@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import in.xparticle.instarupee.MainActivity;
@@ -24,7 +25,7 @@ import in.xparticle.instarupee.utils.AppSession;
 
 public class ProfileFragment extends Fragment {
 
-
+    TextView userName;
     LinearLayout manageProfile,help,aboutUs,logout;
     AppSession appSession;
     @Override
@@ -38,11 +39,14 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        userName = view.findViewById(R.id.userName);
         manageProfile = view.findViewById(R.id.manageProfile);
         help = view.findViewById(R.id.help);
         appSession =new  AppSession(getActivity());
         aboutUs = view.findViewById(R.id.aboutUs);
         logout = view.findViewById(R.id.logout);
+
+        userName.setText(appSession.getFirstName()+" "+appSession.getLastName());
 
         manageProfile.setOnClickListener(new View.OnClickListener() {
             @Override
