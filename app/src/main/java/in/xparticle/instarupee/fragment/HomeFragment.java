@@ -27,7 +27,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayDeque;
 
+import in.xparticle.instarupee.HomeActivity;
 import in.xparticle.instarupee.ItemClickListner;
+import in.xparticle.instarupee.ProductActivity;
 import in.xparticle.instarupee.ProductViewHolder;
 import in.xparticle.instarupee.R;
 import in.xparticle.instarupee.model.Products;
@@ -77,10 +79,12 @@ public class HomeFragment extends Fragment {
 
                        holder.imageView.setImageBitmap(decodedByte);
 
-                       holder.setItemClickListner(new ItemClickListner() {
+                       holder.itemView.setOnClickListener(new View.OnClickListener() {
                            @Override
-                           public void onClick(View view, int position, boolean isLongClick) {
-
+                           public void onClick(View view) {
+                               Intent intent = new Intent(getActivity(), ProductActivity.class);
+                               intent.putExtra("product", model);
+                               startActivity(intent);
                            }
                        });
                     }
